@@ -39,12 +39,14 @@ function App() {
     try{
       setLoading(true)
       const res = await axios.post("http://"+window.location.hostname+":8088/process-image",{image:inputImage, name:name, surname: sername, numbers: numbers })
+      
       setOutputImage(res.data.processed_image)
       setLoading(false)
+      setSuccess(true)
       setTimeout(() =>{
-        setSuccess(true)
-      },1000)
-      setSuccess(false)
+        setSuccess(false)
+      },2000)
+      
     }catch(err){
       console.log(err)
       alert("Something is wrong, Plese try again.")
