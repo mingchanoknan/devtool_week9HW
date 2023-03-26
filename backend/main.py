@@ -7,6 +7,7 @@ import cv2
 import base64
 # import cors
 from fastapi.middleware.cors import CORSMiddleware
+from typing import List
 
 app = FastAPI()
 
