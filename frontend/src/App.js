@@ -22,16 +22,6 @@ function App() {
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(false)
 
-  useEffect(() => {
-    if(!loading){
-      setTimeout(() =>{
-      setSuccess(true)
-    },1000)
-    setSuccess(false)
-    }
-    
-  },loading)
-
   const handleChange = (event) => {
     console.log(event.target.files)
     var fReader = new FileReader()
@@ -51,6 +41,10 @@ function App() {
       const res = await axios.post("http://"+window.location.hostname+":8088/process-image",{image:inputImage, name:name, surname: sername, numbers: numbers })
       setOutputImage(res.data.processed_image)
       setLoading(false)
+      setTimeout(() =>{
+        setSuccess(true)
+      },1000)
+      setSuccess(false)
     }catch(err){
       console.log(err)
       alert("Something is wrong, Plese try again.")
