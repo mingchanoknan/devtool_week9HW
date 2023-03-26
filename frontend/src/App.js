@@ -19,7 +19,7 @@ function App() {
   const [name,setName] = useState("")
   const [sername, setSername] = useState("")
   const [number, setNumber] = useState([])
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   const handleChange = (event) => {
     console.log(event.target.files)
     var fReader = new FileReader()
