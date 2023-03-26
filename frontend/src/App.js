@@ -1,4 +1,4 @@
-import react, { useState } from 'react'
+import react, { useState, useEffect } from 'react'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
@@ -20,6 +20,15 @@ function App() {
   const [sername, setSername] = useState("")
   const [number, setNumber] = useState([])
   const [loading, setLoading] = useState(false)
+  const [success, setSuccess] = useState(false)
+
+  useEffect(() => {
+    setTimeout(() =>{
+      setSuccess(true)
+    },3000)
+    setSuccess(false)
+  })
+
   const handleChange = (event) => {
     console.log(event.target.files)
     var fReader = new FileReader()
@@ -106,14 +115,15 @@ function App() {
       </Col>
     </Row>
   
-    {loading ? (
+    {loading && (
       
       <div style={{position: "absolute", width: "100%", height: "100%", backgroundColor: "rgba(0,0,0, 0.5)", top: 0, left: 0}}>
         <Lottie options={defaultOptions} height={500} width={500} />
       </div>
       
-    ): (
-      
+    )
+ }
+   {success &&   (
     <div style={{position: "absolute", width: "100%", height: "100%", backgroundColor: "rgba(0,0,0, 0.5)", top: 0, left: 0}}>
         <Lottie options={defaultOptions2} height={500} width={500} />
       </div>
