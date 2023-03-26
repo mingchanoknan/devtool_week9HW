@@ -30,7 +30,7 @@ function App() {
     setSuccess(false)
     }
     
-  })
+  },loading)
 
   const handleChange = (event) => {
     console.log(event.target.files)
