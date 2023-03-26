@@ -23,10 +23,13 @@ function App() {
   const [success, setSuccess] = useState(false)
 
   useEffect(() => {
-    setTimeout(() =>{
+    if(!loading){
+      setTimeout(() =>{
       setSuccess(true)
-    },3000)
+    },1000)
     setSuccess(false)
+    }
+    
   })
 
   const handleChange = (event) => {
@@ -37,6 +40,7 @@ function App() {
       console.log(e.target.result)
       setInputImage(e.target.result)
     }
+    setOutputImage(null)
     }
   const submit = async() => {
     let numbers = number.split(" ")
